@@ -1,0 +1,17 @@
+********************************************************************************
+*  Annette Reid s3297925 Web Database Applications Assignment 1
+*
+*           AWS.txt     - history of AWS EC2 setup
+********************************************************************************
+Created an AWS EC2 (basic plan (free)) June 14 2015
+      Instance t2.micro - selecting region as Sydney
+      Public IP   -  54.79.102.56
+      
+Generated a key pair - converted to ppk using puttyGen
+
+Created as security group WDBA-cpt375
+      Inbound: -  SSH   port  22
+               -  HTTP  port  80
+               -  HTTPS port  443
+      
+      Outbound:   All traffic Port range - All

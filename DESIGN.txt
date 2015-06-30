@@ -1,0 +1,56 @@
+********************************************************************************
+*  Annette Reid s3297925 Web Database Applications Assignment 1
+*
+*      DESIGN.txt     - history of planing of the design of the website
+********************************************************************************
+*  Sorted date order - newer versions on top as design change iterations/changes
+********************************************************************************
+
+26/06/2015----------------------------------------------------------------------
+~/webroot/
+   /assign1
+      index.php            -  Landing page for website use templates from below
+                              and swap in and out the views - 
+                              not sure about this yet whether it will work (?)
+      /data
+         answer.php        -  search result to this page 
+                              - first checking session  info before connecting
+                                to database
+         initialData.php   -  initialise below lists
+         wine_name.php     -  list of wine names
+         winery_name.php   -  list of winery names
+         region.php        -  list of regions
+         grape_variety.php -  list of grape varietys
+         years.php         -  list of years
+         wine_stock.php    -  list of minimum number of wine in stock
+         wines_ordered.php -  list of min number of wines ordered
+         wine_cost.php     -  list of cost of wines
+         
+      /views
+         search.php        -  page to search database - user input
+                              -  drop down list prepopulated from
+                                 region.php
+                                 grape_variety.php
+                                 years.php   -  this will be min and max set
+                                 wine_cost.php - cost min and max range
+         results.php       -  result from answer.php shown in a table
+         
+         /templates
+            header.php     -  header template for all pages
+            body.php       -  not sure about this yet, swap in and out views?
+            footer.php     -  footer for all pages
+            
+         /css
+            assign1.css    -  if time permits style the pages
+            
+         /validators
+            textVal.php    -  check that name is valid for wine and winery
+            dateVal.php    -  check year is valid for wines
+            costVal.php    -  check that cost is valid for wines
+            
+      /controls
+         security.php      -  making sure that user input is put into tags    
+         db.php            -  connection information to server
+         connect.php       -  connect to database to serve query
+         session.php       -  for checking for session info
+--------------------------------------------------------------------------------

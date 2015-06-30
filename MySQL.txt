@@ -1,0 +1,19 @@
+********************************************************************************
+*  Annette Reid s3297925 Web Database Applications Assignment 1
+*
+*      MySQl.txt     - history of adding user and installing winestore database
+********************************************************************************
+Created root user and gave it a password
+
+Created a database 'winestore'
+
+Created non root user called "a1" password = "p@55w0rd"
+Granted all privilages on 'winestore' for a1
+
+When loading the database, I ran into a few issues as it was loading in the
+wrong format. These are the steps I took to get it to load correctly.
+
+   I copied the text to a notepad++ file and did a EOL conversion to UNIX
+   then I saved with the same file name and using Cyberduck I created a folder
+   called Download and copied it into here. I then was able to load the database.
+   This was done initially during the labs.

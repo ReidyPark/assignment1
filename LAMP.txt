@@ -1,0 +1,21 @@
+********************************************************************************
+*  Annette Reid s3297925 Web Database Applications Assignment 1
+*
+*           LAMP.txt     - history of LAMP stack setup 
+********************************************************************************
+
+Installed the LAMP Stack onto server (Vanilla install version of linux)
+
+After getting update/upgrade selected LAMP server from the tasksel menu
+   and installed.
+
+Gave root user a password
+
+Enable mod rewrite on apache2
+
+ - webserving directory (/var/ww/html) points to ~/webroot/
+
+Checked to see that MySQL was installed correctly - logged in as root
+
+Created ~/webroot/phpinfo.php -  server configuraton visable when running
+                                 54.79.102.56/phpinfo.php in browser(Chrome)
