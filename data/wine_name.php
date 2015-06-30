@@ -6,15 +6,13 @@
    
    require_once (DATA_PATH.'initialData.php');
    
-   $t = new MiniTemplator;
+   $wineNames = new MiniTemplator;
 
-   $t->readTemplateFromFile ("./../views/templates/output.htm");   
+   $wineNames->readTemplateFromFile ("./../views/templates/wine_name.htm");   
    
    while($r = $wine_name->fetch(PDO::FETCH_OBJ)){
       
-   $t->setVariable ("wineName",$r->wine_name);
-   $t->addBlock ("block1");
+   $wineNames->setVariable ("wineName",$r->wine_name);
+   $wineNames->addBlock ("block1");
 }
-   
-
 ?>

@@ -7,15 +7,15 @@
    require_once (DATA_PATH.'initialData.php');
    
    
-   $r = new MiniTemplator;
+   $regionNames = new MiniTemplator;
 
-   $r->readTemplateFromFile ("./../views/templates/output.htm");   
+   $regionNames->readTemplateFromFile ("./../views/templates/region.htm");   
    
-   while($s = $region_name->fetch(PDO::FETCH_OBJ)){
+   while($r = $region_name->fetch(PDO::FETCH_OBJ)){
       
-   $r->setVariable ("regionName",$s->region_name);
-   $r->addBlock ("block1");
-}
+   $regionNames->setVariable ("regionName",$r->region_name);
+   $regionNames->addBlock ("block1");
+   }
    
 
 ?>

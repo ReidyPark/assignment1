@@ -9,6 +9,14 @@ Student email  -  s3297925@student.rmit.edu.au
 Contact method -  student email
 
 ********************************************************************************
-Notes:
+Notes: 
+
+
+30/06/2015**********************************************************************
+
+Deleted github repository, and created a new one because I had forgotten to use
+the .gitignore for the connection data, exposing this.
+
+********************************************************************************
 
 

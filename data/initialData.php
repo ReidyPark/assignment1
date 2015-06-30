@@ -5,7 +5,6 @@
 
 /* Initialise data for the search values on search.php*/
 
-
    require_once  (__DIR__ . '/../config.php');
 
    require_once (CONTROL_PATH.'connect.php');
