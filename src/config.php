@@ -21,3 +21,7 @@ define('DATA_PATH', ABSPATH. 'data/');
 
 /* list of included files for global inclusion */
 require_once (CONTROL_PATH.'security.php'); 
+
+
+require_once (DATA_PATH.'wine_name.php');
+require_once (DATA_PATH.'region_name.php');

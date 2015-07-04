@@ -4,8 +4,6 @@
 
 
    require_once  (__DIR__ . '/../config.php');
-
-   require_once (VIEWS_PATH.'templateInclude.php');
    
    if(isset($_GET['Submit'])){
   
