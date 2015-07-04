@@ -8,6 +8,9 @@ http://stackoverflow.com/questions/8356547/php-absolute-vs-relative-paths
 
 also decided to use short hand for various functions through out site*/
 
+ini_set('display_errors', 'on');
+error_reporting(E_ALL | E_STRICT);
+
 if ( !defined('ABSPATH') )
     define('ABSPATH', (__DIR__) . '/');
  
@@ -18,5 +21,3 @@ define('DATA_PATH', ABSPATH. 'data/');
 
 /* list of included files for global inclusion */
 require_once (CONTROL_PATH.'security.php'); 
-
-?>
