@@ -5,7 +5,7 @@
 
    require_once  (__DIR__ . '/../config.php');
 
-   require_once (VIEWS_PATH.'templateInclude.php');   
+   require_once (VIEWS_PATH.'templateInclude.php');
    
    if(isset($_GET['Submit'])){
   
@@ -61,10 +61,11 @@
       Select a region from the following list.
    </label>
    <select id="region_name" name="region_name">   
-   <?php $regionNames->generateOutput(); ?>
+   <?php $regionNames->generateOutput();
+         //unsetting region names to reduce load
+         unset($regionNames);?>
    </select>
-   
-                     
+                
                      
                      
    <ul id="formButtons">
