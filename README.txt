@@ -13,6 +13,8 @@ Notes:
 
 05/07/2015**********************************************************************
 
+GitHub repository address: https://github.com/ReidyPark/assignment1
+
 Assumptions:   I made the assumption that the values for minimum number of wines
                ordered was the total number or wines ordered and choosing a 
                minimum value for this.
