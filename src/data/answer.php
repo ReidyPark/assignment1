@@ -10,9 +10,11 @@ require_once (DATA_PATH.'MiniTemplator.class.php');
 require_once (DATA_PATH.'answerHelper.php');
 
 
-// $resultsTable = new MiniTemplator;
+$resultsTable = new MiniTemplator;
 
-// $resultsTable->readTemplateFromFile ("./../views/templates/results.htm");
+$resultsTable->readTemplateFromFile ("./../views/templates/results.htm");
+
+$outputString = '';
 
 function buildAnswerQuery( $wine_name,
                            $winery_name,
@@ -43,8 +45,29 @@ function buildAnswerQuery( $wine_name,
    $searchQuery = $handler->prepare($query);
    $searchQuery->execute($queryValues);
    
-   return $searchQuery;
-     
+   while($r = $searchQuery->fetch(PDO::FETCH_OBJ)){
+      
+      global $resultsTable;
+      
+      $grapeVariety = getGrapeVariety($r->wineId, $handler);
+      $totalWineSold = getTotalWIneSold($r->wineId, $handler);
+      $totalSoldPrice = getTotalSoldPrice($r->wineId, $handler);
+      
+      $resultsTable->setVariable ("wineName",$r->wineName);
+      $resultsTable->setVariable ("grapeVariety", $grapeVariety);
+      $resultsTable->setVariable ("year", $r->year);
+      $resultsTable->setVariable ("wineryName", $r->wineryName);
+      $resultsTable->setVariable ("regionName", $r->regionName);
+      $resultsTable->setVariable ("wineCost", $r->wineCost);
+      $resultsTable->setVariable ("bottlesAvail",$r->bottlesAvail);
+      $resultsTable->setVariable ("totalWineSold", $totalWineSold);
+      $resultsTable->setVariable ("totalSoldPrice", $totalSoldPrice);
+      $resultsTable->addBlock ("block1");
+   }
+   
+   $resultsTable->generateOutputToString($outputString);
+   
+   return $outputString;
       
 }
 ?> 

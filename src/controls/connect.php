@@ -13,9 +13,6 @@
    try{
       $handler = new PDO($dsn, DB_USER, DB_PW);
       $handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      
-   
-   echo 'connecting to database <br>';
    }catch(PDOException $e){
       echo $e->getMessage();
       die('<br>'.'Sorry there is database connection problem');
