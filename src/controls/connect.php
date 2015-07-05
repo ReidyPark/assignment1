@@ -16,8 +16,6 @@
    }catch(PDOException $e){
       echo $e->getMessage();
       die('<br>'.'Sorry there is database connection problem');
-
-
    } 
    
 ?>

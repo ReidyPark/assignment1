@@ -16,7 +16,7 @@
 
    $region_name = $handler->query('SELECT DISTINCT region_name FROM region');
    
-   //$winery_name = $handler->query('SELECT DISTINCT winery_name FROM winery');
+   $grape_variety = $handler->query('SELECT * FROM grape_variety');
    
    //$winery_name = $handler->query('SELECT DISTINCT winery_name FROM winery');
    

@@ -12,7 +12,6 @@
    
    while($r = $wine_name->fetch(PDO::FETCH_OBJ)){
       
-   $wineNames->setVariable ("wineName",$r->wine_name);
-   $wineNames->addBlock ("block1");
-}
-?>
+      $wineNames->setVariable ("wineName",$r->wine_name);
+      $wineNames->addBlock ("block1");
+   }

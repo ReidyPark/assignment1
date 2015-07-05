@@ -25,3 +25,4 @@ require_once (CONTROL_PATH.'security.php');
 
 require_once (DATA_PATH.'wine_name.php');
 require_once (DATA_PATH.'region_name.php');
+require_once (DATA_PATH.'grape_variety.php');

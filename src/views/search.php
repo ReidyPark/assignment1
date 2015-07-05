@@ -61,7 +61,17 @@
    <select id="region_name" name="region_name">   
    <?php $regionNames->generateOutput();
          //unsetting region names to reduce load
-         unset($regionNames);?>
+        // unset($regionNames);?>
+   </select>
+   <br>
+   <br>
+   <label for="variety_name" class="label">
+      Select a region from the following list.
+   </label>
+   <select id="variety_name" name="variety_name">   
+   <?php $grapeVarieties->generateOutput();
+         //unsetting region names to reduce load
+         //unset($regionNames);?>
    </select>
                 
                      
