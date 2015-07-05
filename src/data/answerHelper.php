@@ -87,8 +87,6 @@ function searchQueryValues(&$query,
   
    $query.= $queryString;
    
-   echo $query, '<br>';
-   
    return $valueArray;      
    
 }
