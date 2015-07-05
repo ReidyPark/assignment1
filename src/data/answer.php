@@ -15,16 +15,17 @@ $resultsTable = new MiniTemplator;
 $resultsTable->readTemplateFromFile ("./../views/templates/results.htm");
 
    
-buildAnswerQuery($wine_name = "",
-   $winery_name = "",
-   $region_name = "barossa valley",
-   $grape_variety = "blanc",
-   $minCost = "",
-   $maxCost = "",
-   $minYear = "",
-   $maxYear = "",
-   $minStock = "",
-   $minOrdered = "13");   
+buildAnswerQuery(
+                  $wine_name = "den",
+                  $winery_name = "bell",
+                  $region_name = "",
+                  $grape_variety = "",
+                  $minCost = "",
+                  $maxCost = "",
+                  $minYear = "",
+                  $maxYear = "",
+                  $minStock = "",
+                  $minOrdered = "");   
 
    
 function buildAnswerQuery( $wine_name,

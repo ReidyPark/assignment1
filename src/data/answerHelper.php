@@ -56,13 +56,15 @@ function searchQueryValues(&$query,
    $valueArray = array();
    $queryString = '';
    
-   if(checkInput($wine_name)){         
-     $queryString .= ' WHERE (wine.wine_name = :wine_name)';        
-     $valueArray[':wine_name'] = $wine_name;        
+   if(checkInput($wine_name)){
+     $wineName = "%$wine_name%";
+     $queryString .= ' WHERE (wine.wine_name LIKE :wine_name)';        
+     $valueArray[':wine_name'] = $wineName;        
    }
-   if(checkInput($winery_name)){         
-     $queryString .= ' AND (winery.winery_name = :winery_name)';        
-     $valueArray[':winery_name'] = $winery_name;        
+   if(checkInput($winery_name)){ 
+     $wineryName = "%$winery_name%";
+     $queryString .= ' AND (winery.winery_name LIKE :winery_name)';        
+     $valueArray[':winery_name'] = $wineryName;        
    }
    if(checkInput($region_name)){
      $queryString .= ' AND (region.region_name = :region_name)';        
@@ -94,7 +96,7 @@ function searchQueryValues(&$query,
 /*this to check if there is a value for the where clause in search query*/
 function checkInput($var){
    
-   if($var == '' || $var == 'all'){
+   if($var == '' || $var == 'All'){
       return false;
    }      
    return true;

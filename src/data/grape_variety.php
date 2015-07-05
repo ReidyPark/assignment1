@@ -14,5 +14,5 @@ $grapeVarieties->readTemplateFromFile ("./../views/templates/grape_variety.htm")
 while($r = $grape_variety->fetch(PDO::FETCH_OBJ)){
    
    $grapeVarieties->setVariable ("grapeName",$r->variety);
-   $grapeVarieties->addBlock ("block1");
+   $grapeVarieties->addBlock ("block2");
 }
