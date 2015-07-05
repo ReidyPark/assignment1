@@ -23,7 +23,13 @@ define('DATA_PATH', ABSPATH. 'data/');
 require_once (CONTROL_PATH.'security.php'); 
 
 
-require_once (DATA_PATH.'wine_name.php');
 require_once (DATA_PATH.'region_name.php');
 require_once (DATA_PATH.'grape_variety.php');
-require_once (DATA_PATH.'answer.php');
+require_once (DATA_PATH.'years.php');
+
+session_start();
+if (!isset($_SESSION['search'])) {
+  $_SESSION['search'] = 'empty';
+}
+
+?>

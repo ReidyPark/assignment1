@@ -9,16 +9,16 @@
 
    require_once (CONTROL_PATH.'connect.php');
    require_once (DATA_PATH.'MiniTemplator.class.php');
-   
-   
-   
-   $wine_name = $handler->query('SELECT DISTINCT wine_name FROM wine');
 
-   $region_name = $handler->query('SELECT DISTINCT region_name FROM region');
+   $region_name = $handler->query('SELECT DISTINCT region_name 
+                                       FROM region
+                                       ORDER BY region_name');
    
-   $grape_variety = $handler->query('SELECT * FROM grape_variety');
+   $grape_variety = $handler->query('SELECT DISTINCT variety
+                                       FROM grape_variety
+                                       ORDER BY variety');
    
-   //$winery_name = $handler->query('SELECT DISTINCT winery_name FROM winery');
+   $wine_years = $handler->query('SELECT DISTINCT year FROM wine ORDER BY year');
    
    //$winery_name = $handler->query('SELECT DISTINCT winery_name FROM winery');
    

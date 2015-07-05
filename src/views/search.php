@@ -5,25 +5,14 @@
 
    require_once  (__DIR__ . '/../config.php');
    
+   if (isset($_SESSION['search']) == 'empty') {
+      $_SESSION['search'] = 'newSearch';
+      
+		echo $_SESSION['search'];
+	}
+   
    if(isset($_GET['Submit'])){
-  
-		$region_name = $_GET['region_name'];      
-      $grapeVariety = $_GET['grapeVariety'];
-      $wine_name = escape($_GET['wine_name']);
-      $winery_name = escape($_GET['winery_name']);
-      
-      
-      
-      
-      
-      
-      
-     
          
-         echo '<script type="text/javascript">';
-         echo 	'alert("Congratulations '.$region_name.' '.$wine_name.' '.$winery_name.' '.$grapeVariety.
-               '\nYou have successfully registered for a ")';
-         echo '</script>';
    }
    
    
@@ -31,7 +20,7 @@
 <body>   
    <form id="registration_form"
 							onsubmit="return checkForm()"
-							action="" 
+							action="results.php" 
 							method="get">	
                      
                      
@@ -69,14 +58,76 @@
    <br>
    <br>
    <div id="grapeVarietySelection">
-      <label for="grapeVariety" class="label">
+      <label for="grape_variety" class="label">
          Select a grape variety from the following list.
       </label>
-      <select id="grapeVariety" name="grapeVariety">         
+      <select id="grape_variety" name="grape_variety">         
          <option value="All">All</option>
          <?php $grapeVarieties->generateOutput(); ?>
       </select>
    </div>             
+   <br>
+   <br>
+   <div id="yearSelection">
+      <label for="year" class="label">
+         Select a year range (please select from drop down box)
+      </label>
+      <br>
+      <br>
+      <div id="yearList" style="display:block;">
+         <select id="minYear" name="minYear"> 
+            <option value=""></option>
+            <?php $wineYears->generateOutput(); ?>
+         </select>
+         <select id="maxYear" name="maxYear">
+            <option value=""></option>
+            <?php $wineYears->generateOutput(); ?>
+         </select>
+      </div>
+   </div>             
+   <br>
+   <br>
+   <div id="winesInStock">
+      <label for="minStock" class="label">
+         Input a minimum number of wines in stock (per wine)
+      </label>
+      <input
+         type="text" 
+         name="minStock"
+         id="minStock">
+   </div>
+   <br>
+   <br>
+   <div id="winesOrdered">
+      <label for="minOrdered" class="label">
+         Input a minimum number of wines ordered (per wine)
+      </label>
+      <input
+         type="text" 
+         name="minOrdered"
+         id="minOrdered">
+   </div>
+   <br>
+   <br>
+   <div id="costRange">
+      <label for="wineCostRange" class="label">
+         Input a minimum number of wines ordered (per wine)
+      </label>
+      <br>
+      <br>
+      <div id="wineCostRange" style="display:block;">
+         <input
+            type="text" 
+            name="minCost"
+            id="minCost"
+            placeholder="$">
+         <input
+            type="text" 
+            name="maxCost"
+            id="maxCost"
+            placeholder="$">
+      </div>
+   </div>
    <br>
    <br>
    <div id="submitButtons">                     

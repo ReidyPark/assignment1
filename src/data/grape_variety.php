@@ -16,3 +16,5 @@ while($r = $grape_variety->fetch(PDO::FETCH_OBJ)){
    $grapeVarieties->setVariable ("grapeName",$r->variety);
    $grapeVarieties->addBlock ("block2");
 }
+
+?>
