@@ -1,14 +1,8 @@
-<!-- submitted by Annette Reid s3297925
- Assignment 1 CPT375  -->
-
- <?php
+<?php
  
    /* results from search.php input returned as a string */
-
    require_once  (__DIR__ . '/../config.php');
-
    include ('templates/header.htm');
-
 ?>
 <h2>Search Results</h2>
 

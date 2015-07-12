@@ -2,7 +2,6 @@
  Assignment 1 CPT375  -->
 
 <?php
-
    /*search for wines using values in form */
    include ('validatorGeneral.php');
    
@@ -41,7 +40,6 @@
    }
       
     include ('templates/header.htm');
-
 ?>
 <h2>Wine Store Search</h2>   
 <form id="registration_form"

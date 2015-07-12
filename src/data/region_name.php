@@ -9,7 +9,7 @@
    
    $regionNames = new MiniTemplator;
 
-   $regionNames->readTemplateFromFile ("./../views/templates/region.htm");   
+   $regionNames->readTemplateFromFile (REGION_TEMPLATE);   
    
    while($r = $region_name->fetch(PDO::FETCH_OBJ)){
       

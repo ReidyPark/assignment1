@@ -2,20 +2,13 @@
  Assignment 1 CPT375  --> 
 
 <?php
-
 /* Initialise data for the search values on search.php*/
-
 require_once  (__DIR__ . '/../config.php');
 require_once (DATA_PATH.'MiniTemplator.class.php');
 require_once (DATA_PATH.'answerHelper.php');
-
-
 $resultsTable = new MiniTemplator;
-
 $resultsTable->readTemplateFromFile ("./../views/templates/results.htm");
-
 $outputString = '';
-
 $region_name = $_GET['region_name'];      
 $grape_variety = $_GET['grape_variety'];
 $wine_name = escape($_GET['wine_name']);
@@ -29,7 +22,6 @@ $minOrdered = escape($_GET['minOrdered']);
   
 global $handler;
 $query = buildInitialQuery();
-
 if($_SESSION['search'] == ""){
    $queryValues = searchQueryValues($query,
                                     $wine_name,
@@ -42,10 +34,8 @@ if($_SESSION['search'] == ""){
                                     $maxInputYear,
                                     $minStock,
                                     $minOrdered);
-
    $searchQuery = $handler->prepare($query);
    $searchQuery->execute($queryValues);
-
    while($r = $searchQuery->fetch(PDO::FETCH_OBJ)){
       
       global $resultsTable;
@@ -65,7 +55,6 @@ if($_SESSION['search'] == ""){
       $resultsTable->setVariable ("totalSoldPrice", $totalSoldPrice);
       $resultsTable->addBlock ("block1");
    }
-
    $resultsTable->generateOutputToString($_SESSION['search']);
    header('Location: ./../views/results.php');
    
@@ -74,5 +63,4 @@ if($_SESSION['search'] == ""){
    header('Location: ./../views/search.php');
    
 } 
-
 ?> 

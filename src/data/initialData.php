@@ -18,10 +18,6 @@ $grape_variety = $handler->query('SELECT DISTINCT variety
                                     FROM grape_variety
                                     ORDER BY variety');
 
-// $wine_years = $handler->query('SELECT DISTINCT year 
-                                 // FROM wine 
-                                 // ORDER BY year');
-
 $wine_years = $handler->query('SELECT MIN(year) AS minYear,
                                         MAX(year) AS maxYear
                                    FROM wine');

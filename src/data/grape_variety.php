@@ -9,7 +9,7 @@ require_once (DATA_PATH.'initialData.php');
    
 $grapeVarieties = new MiniTemplator;
 
-$grapeVarieties->readTemplateFromFile ("./../views/templates/grape_variety.htm");   
+$grapeVarieties->readTemplateFromFile (GRAPE_VARIETY_TEMPLATE);   
 
 while($r = $grape_variety->fetch(PDO::FETCH_OBJ)){
    
