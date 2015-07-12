@@ -10,10 +10,20 @@ $wineYears = new MiniTemplator;
 
 $wineYears->readTemplateFromFile ("./../views/templates/years.htm");   
 
+// while($r = $wine_years->fetch(PDO::FETCH_OBJ)){
+   
+   // $wineYears->setVariable ("years",$r->year);  
+   // $wineYears->addBlock ("block1");
+   
+// }
+
+ //$minYear = $min_wineYear->fetch(PDO::FETCH_NUM);
 while($r = $wine_years->fetch(PDO::FETCH_OBJ)){
    
-   $wineYears->setVariable ("years",$r->year);  
-   $wineYears->addBlock ("block1");
+   $wineYears->setVariable ("minYear", $r->minYear);
+   $wineYears->setVariable ("maxYear", $r->maxYear);
+   $wineYears->addBlock ("block1"); 
    
 }
+
 ?>

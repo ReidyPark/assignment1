@@ -4,6 +4,8 @@
 <?php
 /*populating drop down list for region name*/
 
-   <!-- $BeginBlock block1 -->
-        <option value="${years}">${years}</option>        
+   <!-- $BeginBlock block1 -->   
+         <span> ${minYear} and less than ${maxYear}</span>
+         <input type="hidden" name="minYear" value="${minYear}"/>
+         <input type="hidden" name="maxYear" value="${maxYear}"/>
    <!-- $EndBlock block1 -->

@@ -46,7 +46,7 @@ stackoverflow.com/questions/16588086/regular-expression-for-valid
 
 /*check to see if there are any errors in the values input*/
 
-function noErrors($wine_name, 
+function noErrors(         $wine_name, 
                            $winery_name,
                            $minCost,
                            $maxCost,

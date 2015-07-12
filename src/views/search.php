@@ -17,6 +17,8 @@
       $winery_name = $_GET['winery_name'];
       $minCost = $_GET['minCost'];
       $maxCost = $_GET['maxCost'];
+      $minInputYear = $_GET['minInputYear'];
+      $maxInputYear = $_GET['maxInputYear'];
       $minYear = $_GET['minYear'];
       $maxYear = $_GET['maxYear'];
       $minStock = $_GET['minStock'];
@@ -33,8 +35,9 @@
          $goToResults = 'results.php';
        
       }
+     
    }
-   
+      
     include ('templates/header.htm');
 
 ?>
@@ -94,19 +97,21 @@
    <br>
    <div id="yearSelection">
       <label for="year" class="label">
-         Select a year range (please select from drop down box)
-      </label>
+         <span>Select a year greater than </span>
+         <?php $wineYears->generateOutput(); ?>
+      </label> 
+      
       <br>
       <br>
-      <div id="yearList" class="block">
-         <select id="minYear" name="minYear"> 
-            <option value=""></option>
-            <?php $wineYears->generateOutput(); ?>
-         </select>
-         <select id="maxYear" name="maxYear">
-            <option value=""></option>
-            <?php $wineYears->generateOutput(); ?>
-         </select>
+      <div id="year" class="block">
+         <input
+         type="text" 
+         name="minInputYear"
+         id="minInputYear">
+         <input
+         type="text" 
+         name="maxInputYear"
+         id="maxInputYear">
       </div>
    </div>             
    <br>

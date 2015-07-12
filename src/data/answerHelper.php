@@ -34,8 +34,7 @@ function buildInitialQuery(){
                ON wine.wine_id = inventory.wine_id
             INNER
                JOIN  items
-               ON items.wine_id = wine.wine_id
-               ';
+               ON items.wine_id = wine.wine_id';
             
    return $query;
    
@@ -158,9 +157,9 @@ function getTotalSoldPrice($wineId, &$handler){
    $totalSold = $handler->prepare($query);
    $totalSold->execute($array);
    
-   $totalSoldPrince = $totalSold->fetch(PDO::FETCH_NUM);
+   $totalSoldPrice = $totalSold->fetch(PDO::FETCH_NUM);
 
-   return $totalSoldPrince[0];
+   return $totalSoldPrice[0];
    
 }
 
@@ -178,8 +177,6 @@ function returnYearOfWine($minYear,$maxYear,&$queryString,&$valueArray){
       $queryString .= ' AND (wine.year BETWEEN :minYear AND :maxYear)';         
       $valueArray[':minYear'] = $minYear;
       $valueArray[':maxYear'] = $maxYear;
-      
-      print_r ($valueArray) ;
    }
 }
 
@@ -197,9 +194,7 @@ function returnCostOfWine($minCost,$maxCost,&$queryString,&$valueArray){
    }else{
       $queryString .= ' AND (inventory.cost BETWEEN :minCost AND :maxCost)';         
       $valueArray[':minCost'] = $minCost;
-      $valueArray[':maxCost'] = $maxCost;
-      
-      print_r ($valueArray) ;
+      $valueArray[':maxCost'] = $maxCost;      
    }
 }
 
@@ -224,6 +219,5 @@ function returnWinesOrdered($minOrdered,&$queryString,&$valueArray){
       $valueArray[':minOrdered'] = $minOrdered;
    }
 }
-
 
 ?>
