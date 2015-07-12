@@ -10,6 +10,7 @@
    session_unset();   
    if(isset($_GET['Submit'])){
       
+      $_SESSION['search'] = "";
       
       $region_name = $_GET['region_name'];      
       $grape_variety = $_GET['grape_variety'];
@@ -31,8 +32,9 @@
                      $minStock,
                      $minOrdered )){  
                         
-         $_SESSION['search'] = "";
-         $goToResults = 'results.php';
+         
+         $goToResults = './../data/answer.php';
+         
        
       }
      

@@ -16,20 +16,21 @@ $resultsTable->readTemplateFromFile ("./../views/templates/results.htm");
 
 $outputString = '';
 
-function buildAnswerQuery( $wine_name,
-                           $winery_name,
-                           $region_name,
-                           $grape_variety,
-                           $minCost,
-                           $maxCost,
-                           $minYear,
-                           $maxYear,
-                           $minStock,
-                           $minOrdered){ 
+$region_name = $_GET['region_name'];      
+$grape_variety = $_GET['grape_variety'];
+$wine_name = escape($_GET['wine_name']);
+$winery_name = escape($_GET['winery_name']);
+$minCost = escape($_GET['minCost']);
+$maxCost = escape($_GET['maxCost']);
+$minInputYear = $_GET['minYear'];
+$maxInputYear = $_GET['maxYear'];
+$minStock = escape($_GET['minStock']);
+$minOrdered = escape($_GET['minOrdered']);
   
-   global $handler;
-   $query = buildInitialQuery();
-   
+global $handler;
+$query = buildInitialQuery();
+
+if($_SESSION['search'] == ""){
    $queryValues = searchQueryValues($query,
                                     $wine_name,
                                     $winery_name,
@@ -37,14 +38,14 @@ function buildAnswerQuery( $wine_name,
                                     $grape_variety,
                                     $minCost,
                                     $maxCost,
-                                    $minYear,
-                                    $maxYear,
+                                    $minInputYear,
+                                    $maxInputYear,
                                     $minStock,
                                     $minOrdered);
-   
+
    $searchQuery = $handler->prepare($query);
    $searchQuery->execute($queryValues);
-   
+
    while($r = $searchQuery->fetch(PDO::FETCH_OBJ)){
       
       global $resultsTable;
@@ -64,10 +65,14 @@ function buildAnswerQuery( $wine_name,
       $resultsTable->setVariable ("totalSoldPrice", $totalSoldPrice);
       $resultsTable->addBlock ("block1");
    }
+
+   $resultsTable->generateOutputToString($_SESSION['search']);
+   header('Location: ./../views/results.php');
    
-   $resultsTable->generateOutputToString($outputString);
+}else{
    
-   return $outputString;
-      
-}
+   header('Location: ./../views/search.php');
+   
+} 
+
 ?> 

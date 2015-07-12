@@ -47,8 +47,8 @@ function searchQueryValues(&$query,
                            $grape_variety,
                            $minCost,
                            $maxCost,
-                           $minYear,
-                           $maxYear,
+                           $minInputYear,
+                           $maxInputYear,
                            $minStock,
                            $minOrdered){
    
@@ -80,7 +80,7 @@ function searchQueryValues(&$query,
    be updated */
    returnCostOfWine($minCost,$maxCost,$queryString,$valueArray);
    
-   returnYearOfWine($minYear,$maxYear,$queryString,$valueArray);
+   returnYearOfWine($minInputYear,$maxInputYear,$queryString,$valueArray);
    
    returnWineInStock($minStock, $queryString, $valueArray);
    
@@ -163,20 +163,20 @@ function getTotalSoldPrice($wineId, &$handler){
    
 }
 
-function returnYearOfWine($minYear,$maxYear,&$queryString,&$valueArray){
+function returnYearOfWine($minInputYear,$maxInputYear,&$queryString,&$valueArray){
       
-   if($minYear == '' && $maxYear == ''){
+   if($minInputYear == '' && $maxInputYear == ''){
       return;
-   }elseif($minYear == '' && $maxYear != ''){
+   }elseif($minInputYear == '' && $maxInputYear != ''){
       $queryString .= ' AND (wine.year <= :maxYear)';        
-      $valueArray[':maxYear'] = $maxYear;
-   }elseif($minYear != '' && $maxYear == ''){
+      $valueArray[':maxYear'] = $maxInputYear;
+   }elseif($minInputYear != '' && $maxInputYear == ''){
       $queryString .= ' AND (wine.year >= :minYear)';        
-      $valueArray[':minYear'] = $minYear;
+      $valueArray[':minYear'] = $minInputYear;
    }else{
       $queryString .= ' AND (wine.year BETWEEN :minYear AND :maxYear)';         
-      $valueArray[':minYear'] = $minYear;
-      $valueArray[':maxYear'] = $maxYear;
+      $valueArray[':minYear'] = $minInputYear;
+      $valueArray[':maxYear'] = $maxInputYear;
    }
 }
 
