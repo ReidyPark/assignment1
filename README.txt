@@ -11,6 +11,24 @@ Contact method -  student email
 ********************************************************************************
 Notes: 
 
+14/07/2015**********************************************************************
+
+GitHub repository address: https://github.com/ReidyPark/assignment1
+
+Assumptions:   I made the assumption that the values for minimum number of wines
+               ordered was number of wines ordered per order from items table.
+
+Known bugs: 
+
+Fixed bugs:    Fixed the winery_name search function - now able search for winery
+               name without an input for wine name.
+               
+               Completed validation for user input with a pop up alert for 
+               incorrect input. Have added placeholders to help with the format
+               for the input and have used the ENT_COMPAT paramater in the 
+               htmlentities function to allow for single quotes in name search
+               in the security.php file.
+
 05/07/2015**********************************************************************
 
 GitHub repository address: https://github.com/ReidyPark/assignment1
