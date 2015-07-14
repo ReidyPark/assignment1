@@ -29,8 +29,8 @@ th{
          color: #5C5C33;}
 
 .block{
-        display: block;
-        margin-left: 20px;}
+        display: inline-block;
+        margin-left: 10px;}
             
 /* submit button was taken directly from the max design website
 /* http://www.maxdesign.com.au/ - also set up mouse cursor 

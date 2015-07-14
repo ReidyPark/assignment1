@@ -57,10 +57,12 @@ if($_SESSION['search'] == ""){
    }
    $resultsTable->generateOutputToString($_SESSION['search']);
    header('Location: ./../views/results.php');
+   exit();
    
 }else{
    
    header('Location: ./../views/search.php');
+   exit();
    
 } 
 ?> 

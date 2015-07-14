@@ -4,41 +4,56 @@
 <?php
    /* validating user input text */ 
    require_once  (__DIR__ . '/../config.php');
-
-
 /*check to see if there are any errors in the values input, if there is
 then return error message for invalid input */
-
-function noErrors($wine_name, 
-                  $winery_name,
-                  $minCost,
-                  $maxCost,
-                  $minStock,
-                  $minOrdered,
-                  $minInputYear,
-                  $maxInputYear,
-                  $minYear,
-                  $maxYear){
+function checkAnyErrors(&$wine_name, 
+                        &$winery_name,
+                        &$minCost,
+                        &$maxCost,
+                        &$minStock,
+                        &$minOrdered,
+                        &$minInputYear,
+                        &$maxInputYear,
+                        $minYear,
+                        $maxYear){
                               
       if(!checkValidText($wine_name)){
+         $wine_name = '';
          return 'Please check that there are no invalid'.
                 '\ncharacters entered for Wine name';
       }elseif(!checkValidText($winery_name)){
+         $winery_name = '';
          return 'Please check that there are no invalid'.
                 '\ncharacters entered for Winery name';
       }elseif(!checkValidCurr($minCost) || !checkValidCurr($maxCost) ){
+         $minCost = '';
+         $maxCost = '';
          return 'Please check that currency is written in the correct '. 
                 '\nformat for cost of Wine with up to 2 decimal places';
       }elseif(!checkValidNum($minStock)){
+         $minStock = '';
          return 'Please ensure that a valid whole number is entered'.
                 '\nfor the number of Wines in stock';
       }elseif(!checkValidNum($minOrdered)){
+         $minOrdered = '';
          return 'Please ensure that a valid whole number is entered'.
                 '\nfor the minimum number of Wines ordered';
       }elseif(!checkValidYear($minYear,$maxYear,$minInputYear,$maxInputYear)){
+         $minInputYear = '';
+         $maxInputYear = '';
          return 'Please make sure that year range is between'.
                 '\n'.$minYear.' and '.$maxYear.' for Wine year';
       }else{
+         /*reset all fields if no errors*/
+         $wine_name = '';
+         $winery_name = '';
+         $minCost = '';
+         $maxCost = '';
+         $minStock = '';
+         $minOrdered = '';
+         $minInputYear = '';
+         $maxInputYear = '';
+         
          return 'none';
       }
 }   
@@ -54,12 +69,10 @@ stackoverflow.com/questions/19607402/php-preg-match-regex-to-find
    }
    return true;
 }
-
 function checkValidCurr($amount){
 /*used regex for number validation using none or 2 decimal places
 stackoverflow.com/questions/16588086/regular-expression-for-valid
 -2-digit-decimal-number*/
-
    if($amount != ''){
       if(!preg_match('/^[0-9]+(\.[0-9]{1,2})?$/', $amount)){         
          return false; 
@@ -72,7 +85,6 @@ function checkValidNum($number){
 /*used regex for number validation using none or 2 decimal places
 stackoverflow.com/questions/16588086/regular-expression-for-valid
 -2-digit-decimal-number*/
-
    if($number != ''){
       if(!preg_match('/^[1-9][0-9]*$/', $number)){         
          return false; 
@@ -80,10 +92,8 @@ stackoverflow.com/questions/16588086/regular-expression-for-valid
    }      
    return true;
 }
-
 /*checking that year of wine is a valid entry - against min and max year
 and that min year is smaller or equal to max year. */
-
 function checkValidYear($minYear,$maxYear,$minInputYear,$maxInputYear){
       
    if($minInputYear != '' || $maxInputYear != ''){
@@ -102,5 +112,4 @@ function checkValidYear($minYear,$maxYear,$minInputYear,$maxInputYear){
    }
    return true;   
 }
-
 ?>

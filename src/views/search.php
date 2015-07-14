@@ -26,16 +26,16 @@
       
       /*check for any validation issues in validatorGeneral.php checking for
       * text, currency and number validations */
-      $errorType = noErrors(  $wine_name, 
-                              $winery_name,
-                              $minCost,
-                              $maxCost,
-                              $minStock,
-                              $minOrdered,
-                              $minInputYear,
-                              $maxInputYear,
-                              $minYear,
-                              $maxYear);
+      $errorType = checkAnyErrors(  $wine_name, 
+                                    $winery_name,
+                                    $minCost,
+                                    $maxCost,
+                                    $minStock,
+                                    $minOrdered,
+                                    $minInputYear,
+                                    $maxInputYear,
+                                    $minYear,
+                                    $maxYear);
       
       if($errorType == 'none'){
          $goToResults = './../data/answer.php'; 
@@ -44,18 +44,6 @@
 			echo 	'alert("'.$errorType.'")';
 			echo '</script>';
       }
-      
-      
-         
-      
-      // if($errorType == 'none'){                          
-         
-         // $goToResults = './../data/answer.php';         
-       
-      // }elseif($errorType == 'none'){
-         // echo $errorType;
-      // }
-     
    }
       
     include ('templates/header.htm');
@@ -87,9 +75,7 @@
          type="text" 
          name="winery_name"
          id="winery_name"
-         value=""
-         readonly> <!-- known error with part name search for winery if 
-                     wine name is empty - WHERE clause not reading -->
+         value="<?php if(isset($winery_name)){echo $winery_name;} ?>">
    </div>
    <br>
    <br>
@@ -119,19 +105,22 @@
       <label for="year" class="label">
          <span>Select a year greater than </span>
          <?php $wineYears->generateOutput(); ?>
-      </label> 
-      
+      </label>       
       <br>
       <br>
       <div id="year" class="block">
          <input
          type="text" 
          name="minInputYear"
-         id="minInputYear">
+         id="minInputYear"
+         value="<?php if(isset($minInputYear)){echo $minInputYear;} ?>"
+         placeholder="yyyy">
          <input
          type="text" 
          name="maxInputYear"
-         id="maxInputYear">
+         id="maxInputYear"
+         value="<?php if(isset($maxInputYear)){echo $maxInputYear;} ?>"
+         placeholder="yyyy">
       </div>
    </div>             
    <br>
@@ -149,7 +138,7 @@
    <br>
    <div id="winesOrdered">
       <label for="minOrdered" class="label">
-         Input a minimum number of wines ordered (per wine)
+         Input a minimum number of wines ordered (per order)
       </label>
       <input
          type="text" 
@@ -169,12 +158,12 @@
             type="text" 
             name="minCost"
             id="minCost"
-            placeholder="$000.00">
+            placeholder="$">
          <input
             type="text" 
             name="maxCost"
             id="maxCost"
-            placeholder="$000.00">
+            placeholder="$">
       </div>
    </div>
    <br>

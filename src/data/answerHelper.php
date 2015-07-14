@@ -40,6 +40,7 @@ function buildInitialQuery(){
    
 }
 
+/*adding any search query values to query string */
 function searchQueryValues(&$query,
                            $wine_name, 
                            $winery_name,
@@ -84,7 +85,7 @@ function searchQueryValues(&$query,
    
    returnWineInStock($minStock, $queryString, $valueArray);
    
-   //returnWinesOrdered($minOrdered, $queryString, $valueArray);
+   returnWinesOrdered($minOrdered, $queryString, $valueArray);
   
    $query.= $queryString;
    
@@ -101,6 +102,8 @@ function checkInput($var){
    return true;
 }
 
+/* retrieving the grape variety as a string of multiple types of grapes and 
+returning utilising existing handler as a sub query */
 function getGrapeVariety($wineId, &$handler){
       
    $query = '
@@ -127,6 +130,8 @@ function getGrapeVariety($wineId, &$handler){
    
 }   
 
+/* retrieving the total wine sold using the SUM function of MySQL and returning
+a number utilising existing handler as a sub query */
 function getTotalWIneSold($wineId, &$handler){
       
    $query = '
@@ -145,6 +150,8 @@ function getTotalWIneSold($wineId, &$handler){
    
 }
 
+/* retrieving the total price of the wine sold using the SUM function of
+ MySQL and returning a number utilising existing handler as a sub query */
 function getTotalSoldPrice($wineId, &$handler){
       
    $query = '
@@ -163,6 +170,8 @@ function getTotalSoldPrice($wineId, &$handler){
    
 }
 
+/* retrieving the year of wine between a range input by user and adding
+to the query string */
 function returnYearOfWine($minInputYear,$maxInputYear,&$queryString,&$valueArray){
       
    if($minInputYear == '' && $maxInputYear == ''){
@@ -180,7 +189,8 @@ function returnYearOfWine($minInputYear,$maxInputYear,&$queryString,&$valueArray
    }
 }
 
-
+/* returning the cost of wine between a range input by user and adding
+to the query */
 function returnCostOfWine($minCost,$maxCost,&$queryString,&$valueArray){
       
    if($minCost == '' && $maxCost == ''){
@@ -198,8 +208,7 @@ function returnCostOfWine($minCost,$maxCost,&$queryString,&$valueArray){
    }
 }
 
-
-   
+/* returning the of wine in stock in inventory table */   
 function returnWineInStock($minStock,&$queryString,&$valueArray){
    
    if($minStock == ''){
@@ -210,6 +219,7 @@ function returnWineInStock($minStock,&$queryString,&$valueArray){
    }
 }
 
+/*returning the minimum number of wines ordered per order*/
 function returnWinesOrdered($minOrdered,&$queryString,&$valueArray){
    
    if($minOrdered == ''){
@@ -219,5 +229,4 @@ function returnWinesOrdered($minOrdered,&$queryString,&$valueArray){
       $valueArray[':minOrdered'] = $minOrdered;
    }
 }
-
 ?>

@@ -1,4 +1,5 @@
 <?php
 function escape($string){
-	return htmlentities(trim($string), ENT_QUOTES, 'UTF-8');
+	return htmlentities(trim($string), ENT_COMPAT, 'UTF-8');
+   
 }
