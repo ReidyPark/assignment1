@@ -24,18 +24,37 @@
       $minStock = $_GET['minStock'];
       $minOrdered = $_GET['minOrdered'];
       
-      if(noErrors(   $wine_name, 
-                     $winery_name,
-                     $minCost,
-                     $maxCost,
-                     $minStock,
-                     $minOrdered )){  
-                        
-         
-         $goToResults = './../data/answer.php';
-         
-       
+      /*check for any validation issues in validatorGeneral.php checking for
+      * text, currency and number validations */
+      $errorType = noErrors(  $wine_name, 
+                              $winery_name,
+                              $minCost,
+                              $maxCost,
+                              $minStock,
+                              $minOrdered,
+                              $minInputYear,
+                              $maxInputYear,
+                              $minYear,
+                              $maxYear);
+      
+      if($errorType == 'none'){
+         $goToResults = './../data/answer.php'; 
+      }else{
+         echo '<script type="text/javascript">';
+			echo 	'alert("'.$errorType.'")';
+			echo '</script>';
       }
+      
+      
+         
+      
+      // if($errorType == 'none'){                          
+         
+         // $goToResults = './../data/answer.php';         
+       
+      // }elseif($errorType == 'none'){
+         // echo $errorType;
+      // }
      
    }
       
@@ -55,7 +74,8 @@
       <input
          type="text" 
          name="wine_name"
-         id="wine_name">
+         id="wine_name"
+         value="<?php if(isset($wine_name)){echo $wine_name;} ?>">
    </div>
    <br>
    <br>
@@ -149,12 +169,12 @@
             type="text" 
             name="minCost"
             id="minCost"
-            placeholder="$">
+            placeholder="$000.00">
          <input
             type="text" 
             name="maxCost"
             id="maxCost"
-            placeholder="$">
+            placeholder="$000.00">
       </div>
    </div>
    <br>

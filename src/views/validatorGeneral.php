@@ -4,16 +4,53 @@
 <?php
    /* validating user input text */ 
    require_once  (__DIR__ . '/../config.php');
-   
+
+
+/*check to see if there are any errors in the values input, if there is
+then return error message for invalid input */
+
+function noErrors($wine_name, 
+                  $winery_name,
+                  $minCost,
+                  $maxCost,
+                  $minStock,
+                  $minOrdered,
+                  $minInputYear,
+                  $maxInputYear,
+                  $minYear,
+                  $maxYear){
+                              
+      if(!checkValidText($wine_name)){
+         return 'Please check that there are no invalid'.
+                '\ncharacters entered for Wine name';
+      }elseif(!checkValidText($winery_name)){
+         return 'Please check that there are no invalid'.
+                '\ncharacters entered for Winery name';
+      }elseif(!checkValidCurr($minCost) || !checkValidCurr($maxCost) ){
+         return 'Please check that currency is written in the correct '. 
+                '\nformat for cost of Wine with up to 2 decimal places';
+      }elseif(!checkValidNum($minStock)){
+         return 'Please ensure that a valid whole number is entered'.
+                '\nfor the number of Wines in stock';
+      }elseif(!checkValidNum($minOrdered)){
+         return 'Please ensure that a valid whole number is entered'.
+                '\nfor the minimum number of Wines ordered';
+      }elseif(!checkValidYear($minYear,$maxYear,$minInputYear,$maxInputYear)){
+         return 'Please make sure that year range is between'.
+                '\n'.$minYear.' and '.$maxYear.' for Wine year';
+      }else{
+         return 'none';
+      }
+}   
    
 function checkValidText($text){
 /*used regex for text validation using only letters and spaces
 stackoverflow.com/questions/19607402/php-preg-match-regex-to-find
 -letters-numbers-and-spaces*/
-   if($text == ''){
-      return true;
-   }elseif (!preg_match('/^[a-z ]+$/i', $text)) {
-      return false; 
+   if($text != ''){
+      if (!preg_match('/^[a-z \']+$/i', $text)) {
+         return false; 
+      }
    }
    return true;
 }
@@ -23,10 +60,10 @@ function checkValidCurr($amount){
 stackoverflow.com/questions/16588086/regular-expression-for-valid
 -2-digit-decimal-number*/
 
-   if($amount == ''){
-      return true;
-   }elseif(!preg_match('/^[0-9]+(\.[0-9]{1,2})?$/', $amount)){         
-      return false; 
+   if($amount != ''){
+      if(!preg_match('/^[0-9]+(\.[0-9]{1,2})?$/', $amount)){         
+         return false; 
+      }
    }      
    return true;
 }
@@ -36,37 +73,34 @@ function checkValidNum($number){
 stackoverflow.com/questions/16588086/regular-expression-for-valid
 -2-digit-decimal-number*/
 
-   if($number == ''){
-      return true;
-   }elseif(!preg_match('/^[1-9][0-9]*$/', $number)){         
-      return false; 
+   if($number != ''){
+      if(!preg_match('/^[1-9][0-9]*$/', $number)){         
+         return false; 
+      }
    }      
    return true;
 }
 
-/*check to see if there are any errors in the values input*/
+/*checking that year of wine is a valid entry - against min and max year
+and that min year is smaller or equal to max year. */
 
-function noErrors(         $wine_name, 
-                           $winery_name,
-                           $minCost,
-                           $maxCost,
-                           $minStock,
-                           $minOrdered ){
-                              
-      if(!checkValidText($wine_name)){
+function checkValidYear($minYear,$maxYear,$minInputYear,$maxInputYear){
+      
+   if($minInputYear != '' || $maxInputYear != ''){
+      /* this checks to see that the year is written as yyyy format*/
+      if( !(preg_match('/^[0-9]{4}$/',$minInputYear)) || 
+      							!(preg_match('/^[0-9]{4}$/',$maxInputYear)) ){
+               
+         return false;               
+      }elseif($minInputYear > $maxInputYear || $maxInputYear < $minInputYear){
          return false;
-      }elseif(!checkValidText($winery_name)){
+      }elseif($minInputYear < $minYear || $minInputYear > $maxYear){
          return false;
-      }elseif(!checkValidCurr($minCost)){
+      }elseif($maxInputYear < $minYear || $maxInputYear > $maxYear){
          return false;
-      }elseif(!checkValidCurr($maxCost)){
-         return false;
-      }elseif(!checkValidNum($minStock)){
-         return false;
-      }elseif(!checkValidNum($minOrdered)){
-         return false;
-      }else{
-         return true;
       }
+   }
+   return true;   
 }
+
 ?>

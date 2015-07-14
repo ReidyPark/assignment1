@@ -5,7 +5,50 @@
 ********************************************************************************
 *  Sorted date order - newer versions on top as design change iterations/changes
 ********************************************************************************
-05/07/2015-----------------Final Design-----------------------------------------
+14/07/2015----------------------------------------------------------------------
+~/webroot/assign1
+   /src
+      config.php           -  PHP error displaying - relative paths for files
+                              starting session.
+      /data
+         answer.php        -  search result to this page 
+                              - first checking session  info before connecting
+                                to database passing results to result.php
+         answerHelper.php  -  helper for answer page functions
+         initialData.php   -  initialise below lists
+         region_name.php   -  list of regions
+         grape_variety.php -  list of grape varietys
+         years.php         -  list of years
+         MiniTemplator.class.php -  using templator for dynamic html
+         
+      /views
+         search.php        -  page to search database - user input
+                              -  drop down list prepopulated from
+                                 region.php
+                                 grape_variety.php
+                                 years.php   -  this will be min and max set
+                                 wine_cost.php - cost min and max range
+         results.php       -  result from answer.php shown in a table
+         validatorGeneral.php -  general validator for values
+         
+         /templates
+            header.htm     -  header template for all pages
+            footer.htm     -  footer for all pages
+            region.htm     -  template for dropdown list for region names
+            grape_variety.htm -  template for dropdwon list for grape_variety
+            results.htm    -  template for table of results
+            years.htm      -  template for drop down list of years
+            
+         /css
+            assign1.css    -  basic css styling for buttons header and table
+            
+      /controls
+         security.php      -  making sure that user input is put into tags    
+         db.php            -  connection information to server
+         connect.php       -  connect to database to serve query
+--------------------------------------------------------------------------------
+
+05/07/2015----------------------------------------------------------------------
 ~/webroot/assign1
    /src
       /data
