@@ -27,11 +27,7 @@ th{
          font-size: 1em;
          margin: 5px 10px 0px 0px;
          color: #5C5C33;}
-
-.block{
-        display: inline-block;
-        margin-left: 10px;}
-            
+           
 /* submit button was taken directly from the max design website
 /* http://www.maxdesign.com.au/ - also set up mouse cursor 
 /* and individualised the colours */
@@ -49,3 +45,45 @@ th{
 	font-size: 110%;
 	font-weight: bold;	
 	cursor: pointer;}
+   
+.backButton {
+   font-size: 90%;
+   margin-left: 20px;}
+
+.backToSearch {
+   display: inline-block;
+   vertical-align: middle;
+   padding-right: 15px;}
+   
+   /*********************************************************************/
+/* settings for table on results page for the search results*/
+
+/* setting the width of the searchResults div */
+.searchResults {
+	margin: 30px auto 0px;
+	background: #BCC7CD;
+   border-collapse: collapse;}
+
+/* setting the properties for the header of the table and footer */
+.searchResults th {
+	background: #add73a;
+	color: #fff;
+	font-size: 1.2em;
+	height: 50px;}
+
+/* setting the properties for the table cells */
+.searchResults td {
+	height: 25px;}
+
+.searchResults tr:nth-child(odd) {
+   background: #fff;
+}
+
+.searchResults th, td {   
+   border: none;}
+   
+.search_form {
+   margin-left: 15px;}
+   
+.footer {
+   margin-left: 10px;}

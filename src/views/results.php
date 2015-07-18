@@ -4,15 +4,13 @@
    require_once  (__DIR__ . '/../config.php');
    include ('templates/header.htm');
 ?>
-<div class="block">
-<h2>Search Results</h2>
-<span>
-<button type="button" 
-        class="submitButton"
-        onclick="location.href='./../data/answer.php'">Back</button>
-</span>
+<div>
+   <h2 class="backToSearch">Search Results</h2>
+   <button type="button" 
+           class="submitButton backButton backToSearch"
+           onclick="location.href='./../data/answer.php'">Back to Search</button>
 </div>
-<table>
+<table class="searchResults">
    <tr>
       <th>Wine Name</th>
       <th>Grape Varieties</th>

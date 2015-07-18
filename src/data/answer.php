@@ -9,6 +9,7 @@ require_once (DATA_PATH.'answerHelper.php');
 $resultsTable = new MiniTemplator;
 $resultsTable->readTemplateFromFile ("./../views/templates/results.htm");
 $outputString = '';
+
 $region_name = $_GET['region_name'];      
 $grape_variety = $_GET['grape_variety'];
 $wine_name = escape($_GET['wine_name']);
@@ -60,7 +61,6 @@ if($_SESSION['search'] == ""){
    exit();
    
 }else{
-   
    header('Location: ./../views/search.php');
    exit();
    
