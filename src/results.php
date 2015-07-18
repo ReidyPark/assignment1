@@ -1,14 +1,14 @@
 <?php
  
    /* results from search.php input returned as a string */
-   require_once  (__DIR__ . '/../config.php');
-   include ('templates/header.htm');
+   require_once  ('config.php');
+   include ('views/templates/header.htm');
 ?>
 <div>
-   <h2 class="backToSearch">Search Results</h2>
+   <h2 class="buttonInline">Search Results</h2>
    <button type="button" 
            class="submitButton backButton backToSearch"
-           onclick="location.href='./../data/answer.php'">Back to Search</button>
+           onclick="location.href='answer.php'">Back to Search</button>
 </div>
 <table class="searchResults">
    <tr>
@@ -27,4 +27,4 @@
          echo $_SESSION['search']; 
       } ?>
 </table>
-<?php include ('templates/footer.htm'); ?>
+<?php include ('views/templates/footer.htm'); ?>

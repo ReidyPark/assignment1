@@ -50,10 +50,13 @@ th{
    font-size: 90%;
    margin-left: 20px;}
 
-.backToSearch {
+.buttonInline {
    display: inline-block;
    vertical-align: middle;
    padding-right: 15px;}
+
+.input {
+   margin-left: 15px;}
    
    /*********************************************************************/
 /* settings for table on results page for the search results*/

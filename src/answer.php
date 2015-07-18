@@ -3,12 +3,12 @@
 
 <?php
 /* Initialise data for the search values on search.php*/
-require_once  (__DIR__ . '/../config.php');
+require_once  ('config.php');
 require_once (DATA_PATH.'MiniTemplator.class.php');
 require_once (DATA_PATH.'answerHelper.php');
 
 $resultsTable = new MiniTemplator;
-$resultsTable->readTemplateFromFile ("./../views/templates/results.htm");
+$resultsTable->readTemplateFromFile ("views/templates/results.htm");
 $outputString = '';
 
 $region_name = $_GET['region_name'];      
@@ -58,11 +58,11 @@ if($_SESSION['search'] == ""){
       $resultsTable->addBlock ("block1");
    }
    $resultsTable->generateOutputToString($_SESSION['search']);
-   header('Location: ./../views/results.php');
+   header('Location: results.php');
    exit();
    
 }else{
-   header('Location: ./../views/search.php');
+   header('Location: search.php');
    exit();
    
 } 
