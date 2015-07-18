@@ -11,16 +11,16 @@ $resultsTable = new MiniTemplator;
 $resultsTable->readTemplateFromFile ("views/templates/results.htm");
 $outputString = '';
 
-$region_name = $_GET['region_name'];      
-$grape_variety = $_GET['grape_variety'];
-$wine_name = escape($_GET['wine_name']);
-$winery_name = escape($_GET['winery_name']);
-$minCost = escape($_GET['minCost']);
-$maxCost = escape($_GET['maxCost']);
-$minInputYear = $_GET['minYear'];
-$maxInputYear = $_GET['maxYear'];
-$minStock = escape($_GET['minStock']);
-$minOrdered = escape($_GET['minOrdered']);
+$region_name = $_SESSION['region_name'];
+$grape_variety = $_SESSION['grape_variety'];
+$wine_name = escape($_SESSION['wine_name']);
+$winery_name = escape($_SESSION['winery_name']);
+$minCost = escape($_SESSION['minCost']);
+$maxCost = escape($_SESSION['maxCost']);
+$minInputYear = escape($_SESSION['minInputYear']);
+$maxInputYear = escape($_SESSION['maxInputYear']);
+$minStock = escape($_SESSION['minStock']);
+$minOrdered = escape($_SESSION['minOrdered']);
   
 global $handler;
 $query = buildInitialQuery();
@@ -62,6 +62,7 @@ if($_SESSION['search'] == ""){
    exit();
    
 }else{
+   session_destroy();
    header('Location: search.php');
    exit();
    

@@ -18,25 +18,7 @@ GitHub repository address: https://github.com/ReidyPark/assignment1
 Assumptions:   I made the assumption that the values for minimum number of wines
                ordered was number of wines ordered per order from items table.
 
-Known bugs:    Have to hit submit button twice in the search page - doing a 
-               rethink to get this working - have as yet not resolved it.
-               The URL is populated with the results but the fields will go 
-               blank and data needs to be re-input.
-               
-               I tried deleting all php code back to bare bones:
-               
-                  if(isset($_GET['Submit'])){      
-                     $_SESSION['search'] = "";
-                     $goToResults = 'answer.php';} 
-                  
-               <form id="registration_form"
-                     method="get"
-                     action="<?php if(isset($goToResults))
-                                                      {echo $goToResults;} ?>" >
-                  
-               But still needed to hit submit button twice, I also tried using 
-               session data but could not get that to work. I am awaiting an
-               email from Halil - to hopefully help clear it up.
+Known bugs:    
 
 Fixed bugs:    Fixed the winery_name search function - now able search for winery
                name without an input for wine name.

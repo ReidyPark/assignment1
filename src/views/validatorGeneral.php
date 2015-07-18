@@ -94,22 +94,59 @@ stackoverflow.com/questions/16588086/regular-expression-for-valid
 }
 /*checking that year of wine is a valid entry - against min and max year
 and that min year is smaller or equal to max year. */
-function checkValidYear($minYear,$maxYear,$minInputYear,$maxInputYear){
-      
-   if($minInputYear != '' || $maxInputYear != ''){
-      /* this checks to see that the year is written as yyyy format*/
-      if( !(preg_match('/^[0-9]{4}$/',$minInputYear)) || 
-      							!(preg_match('/^[0-9]{4}$/',$maxInputYear)) ){
-               
-         return false;               
-      }elseif($minInputYear > $maxInputYear || $maxInputYear < $minInputYear){
-         return false;
-      }elseif($minInputYear < $minYear || $minInputYear > $maxYear){
-         return false;
-      }elseif($maxInputYear < $minYear || $maxInputYear > $maxYear){
+function checkValidYear($minYear,$maxYear,$minInputYear,$maxInputYear){   
+   
+   $emptyMinInputYear;
+   $emptyMaxInputYear;
+   
+   /*set whether input is empty or not - if not validate*/
+   if($minInputYear == '' ){
+      $emptyMinInputYear = true;
+   }else{
+      if(checkValidInput($minInputYear) && 
+                        checkWithinRange($minYear,$maxYear,$minInputYear)){
+         $emptyMinInputYear = false;
+      }else{
          return false;
       }
    }
+   /*set whether input is empty or not - if not validate*/
+   if($maxInputYear == '' ){
+      
+      $emptyMaxInputYear = true;
+   }else{
+      if(checkValidInput($maxInputYear) && 
+                        checkWithinRange($minYear,$maxYear,$maxInputYear)){
+         $emptyMaxInputYear = false;
+      }else{
+         return false;
+      }
+   }
+   
+   /*if there are values in the max and min years just make sure that they
+   are valid and the min is not larger than the max or vice versa */
+   if(!($emptyMinInputYear) && !($emptyMaxInputYear)){
+      if($minInputYear > $maxInputYear || $maxInputYear < $minInputYear){
+         return false;
+      }
+   }   
    return true;   
+}
+
+/*valid year input format */
+function checkValidInput($inputYear){
+   if(!preg_match('/^[0-9]{4}$/',$inputYear)){
+      return false;
+   }
+   return true;
+}
+
+/*check that year is within the max and min year limits*/
+function checkWithinRange($minYear,$maxYear,$inputYear){
+   
+   if($inputYear < $minYear || $inputYear > $maxYear){
+      return false;
+   }   
+   return true;
 }
 ?>

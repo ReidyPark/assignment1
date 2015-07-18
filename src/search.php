@@ -11,18 +11,19 @@
       
       $_SESSION['search'] = "";
       
-      $region_name = $_GET['region_name'];      
-      $grape_variety = $_GET['grape_variety'];
-      $wine_name = $_GET['wine_name'];
-      $winery_name = $_GET['winery_name'];
-      $minCost = $_GET['minCost'];
-      $maxCost = $_GET['maxCost'];
-      $minInputYear = $_GET['minInputYear'];
-      $maxInputYear = $_GET['maxInputYear'];
+      /*add all the form data to session variables to pass to answer.php*/
+      $_SESSION['region_name'] =  $region_name = $_GET['region_name'];      
+      $_SESSION['grape_variety'] =  $grape_variety = $_GET['grape_variety'];
+      $_SESSION['wine_name'] = $wine_name = $_GET['wine_name'];
+      $_SESSION['winery_name'] = $winery_name = $_GET['winery_name'];
+      $_SESSION['minCost'] = $minCost = $_GET['minCost'];
+      $_SESSION['maxCost'] = $maxCost = $_GET['maxCost'];
+      $_SESSION['minInputYear'] = $minInputYear = $_GET['minInputYear'];
+      $_SESSION['maxInputYear'] = $maxInputYear = $_GET['maxInputYear'];
+      $_SESSION['minStock'] = $minStock = $_GET['minStock'];
+      $_SESSION['minOrdered'] = $minOrdered = $_GET['minOrdered'];
       $minYear = $_GET['minYear'];
       $maxYear = $_GET['maxYear'];
-      $minStock = $_GET['minStock'];
-      $minOrdered = $_GET['minOrdered'];
       
       /*check for any validation issues in validatorGeneral.php checking for
       * text, currency and number validations */
@@ -36,9 +37,9 @@
                                     $maxInputYear,
                                     $minYear,
                                     $maxYear);
-      
+           
       if($errorType == 'none'){
-         $goToResults = 'answer.php'; 
+         header('Location: answer.php'); 
       }else{
          /* create an alert with the error so user can change it */
          echo '<script type="text/javascript">';
@@ -52,8 +53,7 @@
    <h2>Wine Store Search</h2>   
    <form id="registration_form"
          method="get"
-         action="<?php if(isset($goToResults))
-                        {echo $goToResults;} ?>" >	
+         action="" >	
                      
                      
       <div id="wineInput">
