@@ -5,6 +5,54 @@
 ********************************************************************************
 *  Sorted date order - newer versions on top as design change iterations/changes
 ********************************************************************************
+18/07/2015----------final draft-------------------------------------------------
+
+*** Please note change to file structure due to Assignment 1 specs *************
+   "Please adhere to the structure below" this was on page 6 of assignment 
+    which had the search.php, answer.php and results.php all in the root folder.
+********************************************************************************
+   
+~/webroot/assign1
+   /src
+      config.php           -  PHP error displaying - relative paths for files
+                              starting session.
+      search.php        -  page to search database - user input
+                              -  drop down list pre-populated from
+                                 region.php
+                                 grape_variety.php
+                                 years.php   -  this will be min and max set
+                                 wine_cost.php - cost min and max range
+      results.php       -  result from answer.php shown in a table   
+      answer.php        -  search result to this page 
+                        - first checking session  info before connecting
+                              to database passing results to result.php
+      /data
+         answerHelper.php  -  helper for answer page functions
+         initialData.php   -  initialise below lists
+         region_name.php   -  list of regions
+         grape_variety.php -  list of grape varietys
+         years.php         -  list of years
+         MiniTemplator.class.php -  using templator for dynamic html
+         
+      /views
+         validatorGeneral.php -  general validator for input values
+         
+         /templates
+            header.htm     -  header template for all pages
+            footer.htm     -  footer for all pages
+            region.htm     -  template for drop down list for region names
+            grape_variety.htm -  template for drop down list for grape_variety
+            results.htm    -  template for table of results
+            years.htm      -  lower and upper bound selected from database
+            
+         /css
+            assign1.css    -  basic css styling for buttons header and table
+            
+      /controls
+         security.php      -  making sure that user input is put html elements   
+         db.php            -  connection information to server
+         connect.php       -  connect to database to serve query
+--------------------------------------------------------------------------------
 14/07/2015----------------------------------------------------------------------
 ~/webroot/assign1
    /src
