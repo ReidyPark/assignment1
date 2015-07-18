@@ -19,3 +19,6 @@ Checked to see that MySQL was installed correctly - logged in as root
 
 Created ~/webroot/phpinfo.php -  server configuraton visable when running
                                  54.79.102.56/phpinfo.php in browser(Chrome)
+
+Ran the administrator set up script from Tim  oua-wda-assignment-1.sh
+      as root sudo bash oua-wda-assignment-1.sh

@@ -19,7 +19,17 @@ Assumptions:   I made the assumption that the values for minimum number of wines
                ordered was number of wines ordered per order from items table.
 
 Known bugs:    Have to hit submit button twice in the search page - doing a 
-               rethink to get this working.
+               rethink to get this working - have as yet not resolved it.
+               
+               I tried deleting all php code back to bare bones:
+               
+               if(isset($_GET['Submit'])){      
+                  $_SESSION['search'] = "";
+                  $goToResults = './../data/answer.php';} 
+                  
+               But still needed to hit submit button twice, I also tried using 
+               session data but could not get that to work. I am awaiting an
+               email from Halil - to hopefully help clear it up.
 
 Fixed bugs:    Fixed the winery_name search function - now able search for winery
                name without an input for wine name.

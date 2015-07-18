@@ -40,13 +40,14 @@
       if($errorType == 'none'){
          $goToResults = './../data/answer.php'; 
       }else{
+         /* create an alert with the error so user can change it */
          echo '<script type="text/javascript">';
 			echo 	'alert("'.$errorType.'")';
 			echo '</script>';
       }
    }
       
-    include ('templates/header.htm');
+   include ('templates/header.htm');
 ?>
 <h2>Wine Store Search</h2>   
 <form id="registration_form"

@@ -6,6 +6,7 @@
 require_once  (__DIR__ . '/../config.php');
 require_once (DATA_PATH.'MiniTemplator.class.php');
 require_once (DATA_PATH.'answerHelper.php');
+
 $resultsTable = new MiniTemplator;
 $resultsTable->readTemplateFromFile ("./../views/templates/results.htm");
 $outputString = '';
